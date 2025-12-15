@@ -4,14 +4,14 @@
   Heyo, traveler! I'm **Steven**, and this is my little corner for coding pursuits.
   - Illustrator, animator, and musician. I love dabbling in a little bit of everything!
   - Learning to code in my free time. I hope to incorporate a technical side into my projects and perhaps pivot into tech someday!
-  - **Pronouns**: he/they/any
+  - **Pronouns**: *he/they/any*
     
 </details>
 
 <details>
   <summary>🌿 Skills / Interests</summary></br>
   	
-  - **Skills**: HTML, CSS, basic Javascript
+  - **Skills**: HTML, CSS, Javascript
   - **Learning**: Javascript, Python, C#, MERN stack
   - **Topics**: Software Engineering, Data Science, Game Development
     
@@ -20,7 +20,7 @@
 <details>
   <summary>🔖 Contact</summary></br>
   
-  - 🔭 **TBA**. Let me get some experience first!
+  - 🔭 **TBA**.
   - 🌱 Friends and relevant acquaintances (ex. current team members) may reach out via Discord or LinkedIn.
     
 </details>
