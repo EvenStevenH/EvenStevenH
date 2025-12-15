@@ -20,7 +20,7 @@
 <details>
   <summary>🔖 Contact</summary></br>
   
-  - 🔭 **TBA** *(as of December 2025)*
+  - 🔭 **TBA**
   - 🌱 Friends and relevant acquaintances (ex. current team members) may reach out via Discord or LinkedIn.
     
 </details>
