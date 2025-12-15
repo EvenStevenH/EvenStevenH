@@ -20,7 +20,7 @@
 <details>
   <summary>🔖 Contact</summary></br>
   
-  - 🔭 **TBA**
-  - 🌱 Friends and relevant acquaintances (ex. current team members) may reach out via Discord or LinkedIn.
+  - 🔭 **TBA**. Let me get some knowledge and experience first!
+  - 🌱 Friends and relevant acquaintances (ex. current team members) may still reach out via Discord or LinkedIn.
     
 </details>
