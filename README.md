@@ -13,7 +13,7 @@
   	
   - **Skills**: HTML, CSS, Javascript
   - **Learning**: Javascript, Python, C#, MERN stack
-  - **Topics**: Software Engineering, Data Science, Game Development
+  - **Topics**: Software Engineering, Data, Game Development
     
 </details>
 
