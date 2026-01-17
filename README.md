@@ -12,7 +12,7 @@
   <summary>🌿 Skills / Interests</summary></br>
   	
   - **Skills**: HTML, CSS, Javascript
-  - **Learning**: Javascript, Python, C#, MERN stack
+  - **Learning**: advanced Javascript, Python, C#, MERN stack
   - **Topics**: Software Engineering, Data, Game Development
     
 </details>
