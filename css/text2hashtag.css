@@ -17,10 +17,15 @@ p {
 	font-size: 1rem;
 }
 
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
 button {
 	background-color: #c06d2e;
 	color: white;
-	padding: 10px 20px;
+	padding: 5px 20px;
 	font-size: 1rem;
 	cursor: pointer;
 	flex: 1;
@@ -58,7 +63,7 @@ button:active {
 
 #inputText {
 	background-color: #f4f4f4;
-	height: 80px;
+	height: 100px;
 	margin: 0;
 	line-height: 1.5;
 	flex: 3;
