@@ -5,23 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>String to Hashtag Tool</title>
+    <link rel="icon" href="#">
     <link rel="stylesheet" href="../css/text2hashtag.css">
 </head>
 
 <body>
-    <h1><a href="../index.html">String to Hashtag Tool</a></h1>
 
-    <section id="input-section">
-        <textarea id="inputText" rows="5" placeholder="Enter your text here..."></textarea>
+    <aside id="sidebar">
+        <div id="sidebar-actions">
+            <div>
+                <input type="text" id="searchInput" placeholder="Search tags..." />
+                <button id="clearSearch">Clear</button>
+            </div>
 
-        <div id="buttons-container">
-            <button id="runBtn">Process 0 words</button>
-            <button id="copyBtn">Copy All</button>
+            <div>
+                <button id="editModeBtn">Edit</button>
+                <button id="deleteModeBtn">Delete</button>
+            </div>
+
+            <div>
+                <button id="exportBtn">Export Terms</button>
+                <input type="file" id="importFile" hidden />
+                <button id="importBtn">Import Terms</button>
+            </div>
         </div>
-    </section>
 
+        <div id="groups"></div>
+    </aside>
 
-    <section class="result" id="output"></section>
+    <main>
+        <h1><a href="../index.html">String to Hashtag Tool</a></h1>
+
+        <section id="input-section">
+            <textarea id="inputText" rows="5" placeholder="Enter your text here..."></textarea>
+
+            <div id="input-buttons">
+                <button id="runBtn">Process 0 words</button>
+                <button id="copyBtn">Copy All</button>
+                <button id="clearBtn">Clear</button>
+            </div>
+        </section>
+
+        <section class="result" id="output"></section>
+    </main>
 
     <script src="../js/text2hashtag.js"></script>
 </body>
