@@ -32,6 +32,7 @@ function loadTerms() {
 		termsData = JSON.parse(storedTerms);
 		searchInput.value = "";
 		inputText.value = "";
+		
 	}
 }
 
@@ -176,10 +177,11 @@ function renderSidebar() {
 		// const sortBtn = document.createElement("button");
 		// sortBtn.textContent = "Sort";
 		// sortBtn.onclick = () => {
-		// 	termsData[groupName].sort((a, b) => a.localeCompare(b));
-		// 	saveTerms();
-		// 	renderSidebar();
-		// };
+		title.onclick = () => {
+			termsData[groupName].sort((a, b) => a.localeCompare(b));
+			saveTerms();
+			renderSidebar();
+		};
 
 		groupHeader.appendChild(title);
 		groupHeader.appendChild(addBtn);
@@ -426,6 +428,5 @@ clearBtn.addEventListener("click", () => {
 });
 
 // init
-updateRunButton();
 loadTerms();
 renderSidebar();
