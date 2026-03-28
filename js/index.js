@@ -5,9 +5,11 @@ document.querySelectorAll(".accordion").forEach((acc) => {
 		if (panel.style.maxHeight) {
 			panel.style.maxHeight = null;
 			panel.style.marginTop = null;
+			panel.style.marginBottom = null;
 		} else {
 			panel.style.maxHeight = panel.scrollHeight + "px";
-			panel.style.marginTop = ".6rem";
+			panel.style.marginTop = "1rem";
+			panel.style.marginBottom = "1rem";
 		}
 	});
 });
