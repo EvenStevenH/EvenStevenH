@@ -25,9 +25,10 @@ a {
 
 #sidebar-actions {
 	background-color: #242424;
-	padding: 1rem;
+	padding: 1rem 4rem;
 	border-radius: 0.5rem;
 	display: flex;
+	justify-content: center;
 	gap: 2rem;
 	margin-bottom: 1rem;
 }
@@ -211,6 +212,7 @@ h2 {
 
 p {
 	font-size: 1rem;
+	line-height: 1.4;
 }
 
 .container {
@@ -231,4 +233,34 @@ p {
 
 .container:last-child {
 	border-color: #222;
+}
+
+/* -------------------------------------------------------------------------- */
+/* tool tip */
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden; /* tooltip text */
+	width: 400px;
+	background-color: #666;
+	color: #fff;
+	text-align: left;
+	padding: 1rem 2rem;
+	border-radius: 0.5rem;
+
+	position: absolute; /* position the tooltip text */
+	z-index: 1;
+	top: 125%;
+	left: 0%;
+
+	opacity: 0;
+	transition: opacity 0.4s;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
 }

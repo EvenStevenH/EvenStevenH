@@ -14,7 +14,7 @@
     <aside id="sidebar">
         <div id="sidebar-actions">
             <div>
-                <input type="text" id="searchInput" placeholder="Search tags..." />
+                <input type="text" id="searchInput" placeholder="Search terms..." />
                 <button id="clearSearch">Clear</button>
             </div>
 
@@ -28,6 +28,18 @@
                 <input type="file" id="importFile" hidden />
                 <button id="importBtn">Import Terms</button>
             </div>
+
+            <div>
+                <button class="tooltip">Info
+                    <span class="tooltiptext">
+                        <p>A simple tool I made to format hashtags for my posts!</p>
+                        <p>I create frequently used groups (stored locally) based on subject and category, such
+                            as "dog 犬" and "art drawing". When processed, it becomes "#dog
+                            #犬 #art #drawing" for usage.
+                        </p>
+                    </span>
+                </button>
+            </div>
         </div>
 
         <div id="groups"></div>
@@ -37,8 +49,7 @@
         <h1><a href="../index.html">String to Hashtag Tool</a></h1>
 
         <section id="input-section">
-            <textarea id="inputText" rows="5"
-                placeholder="A quick tool to format hashtags for my posts. Enter text here!"></textarea>
+            <textarea id="inputText" rows="5" placeholder="Enter terms here..."></textarea>
 
             <div id="input-buttons">
                 <button id="runBtn">Process 0 words</button>
