@@ -13,7 +13,7 @@ Heyo, traveler! I'm **Steven**, and this is my little corner for coding pursuits
   <summary>🌿 Skills / Interests</summary></br>
   	
   - **Skills**: HTML, CSS, Javascript, MERN stack
-  - **Learning**: Python, C#, MERN stack
+  - **Learning**: Python, C#
   - **Topics**: Software Engineering, Data, Game Development
     
 </details>
@@ -22,6 +22,6 @@ Heyo, traveler! I'm **Steven**, and this is my little corner for coding pursuits
   <summary>🔖 Contact</summary></br>
   
   - 🔭 **TBA**.
-  - 🌱 Friends and relevant acquaintances (ex. current team members) may reach out via Discord or LinkedIn.
+  - 🌱 Friends and relevant acquaintances (ex. team members on an ongoing project) may reach out via Discord or LinkedIn.
     
 </details>

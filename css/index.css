@@ -84,7 +84,7 @@ details {
 	width: 100%;
 	border-radius: 10px;
 	cursor: pointer;
-	transition: 0.4s;
+	transition: all 0.4s ease;
 }
 
 nav p {
@@ -102,14 +102,14 @@ nav li:hover:not(.active),
 
 .accordion {
 	border: none;
-	transition: 0.4s;
+	transition: all 0.4s ease;
 }
 
 .panel {
 	padding-left: 1.5rem;
 	max-height: 0;
 	overflow: hidden;
-	transition: max-height 0.2s ease-out;
+	transition: all 0.4s ease;
 	display: flex;
 	flex-direction: column;
 	gap: 0.4rem;
@@ -117,11 +117,11 @@ nav li:hover:not(.active),
 
 .panel p {
 	color: var(--text);
-	padding: .2rem 1rem;
+	padding: 0.2rem 1rem;
 	margin: 0;
 	border-radius: 0.5rem;
 	cursor: pointer;
-	transition: 0.4s;
+	transition: all 0.4s ease;
 }
 
 .panel a {
