@@ -12,7 +12,6 @@ const outputContainer = document.getElementById("output");
 let mode = null; // "edit" | "delete" | null
 let selectedSubgroup = null;
 let activeEditInput = null;
-
 let results = [];
 let uniqueWordsList = [];
 let duplicatesList = [];
@@ -32,7 +31,6 @@ function loadTerms() {
 		termsData = JSON.parse(storedTerms);
 		searchInput.value = "";
 		inputText.value = "";
-		
 	}
 }
 
@@ -102,7 +100,6 @@ function createContainer(title, text) {
 
 	div.appendChild(h2);
 	div.appendChild(p);
-
 	return div;
 }
 
@@ -174,9 +171,6 @@ function renderSidebar() {
 			}
 		};
 
-		// const sortBtn = document.createElement("button");
-		// sortBtn.textContent = "Sort";
-		// sortBtn.onclick = () => {
 		title.onclick = () => {
 			termsData[groupName].sort((a, b) => a.localeCompare(b));
 			saveTerms();
@@ -185,11 +179,8 @@ function renderSidebar() {
 
 		groupHeader.appendChild(title);
 		groupHeader.appendChild(addBtn);
-		// groupHeader.appendChild(sortBtn);
-
 		groupDiv.appendChild(groupHeader);
 		groupDiv.appendChild(list);
-
 		groupsContainer.appendChild(groupDiv);
 	});
 }
@@ -203,15 +194,9 @@ function enableInlineEdit(item, groupName, index, oldText) {
 	const input = document.createElement("input");
 	input.value = oldText;
 	input.className = "edit-input";
-
 	item.appendChild(input);
 	input.focus();
-
 	activeEditInput = input;
-
-	function cleanup() {
-		activeEditInput = null;
-	}
 
 	input.addEventListener("keydown", (e) => {
 		if (e.key === "Enter") {
@@ -221,12 +206,11 @@ function enableInlineEdit(item, groupName, index, oldText) {
 				saveTerms();
 				renderSidebar();
 			}
-			cleanup();
+			activeEditInput = null;
 			renderSidebar();
 		}
-
 		if (e.key === "Escape") {
-			cleanup();
+			activeEditInput = null;
 			renderSidebar();
 		}
 	});
@@ -243,14 +227,11 @@ function addToInput(text) {
 	const current = inputText.value.trim();
 	inputText.value = current ? `${current} ${text}` : text;
 
-	// check for matches and highlight subgroups if they appear in the input text
 	document.querySelectorAll(".subgroup").forEach((el) => {
 		const subgroupText = el.textContent.toLowerCase();
 		const wordsInInput = getWords(inputText.value).map((word) => word.toLowerCase());
-
 		let partialMatch = false;
 		let fullMatch = true;
-
 		for (const word of subgroupText.split(/\s+/)) {
 			if (wordsInInput.includes(word)) {
 				partialMatch = true;
@@ -285,13 +266,13 @@ searchClearBtn.addEventListener("click", () => {
 
 // import/export
 document.getElementById("exportBtn").onclick = () => {
-	const blob = new Blob(
-		[JSON.stringify(termsData, null, 2)], // no transformation > number of spaces for indentation
-		{ type: "application/json" },
-	);
 	const link = document.createElement("a");
-
-	link.href = URL.createObjectURL(blob);
+	link.href = URL.createObjectURL(
+		new Blob(
+			[JSON.stringify(termsData, null, 2)], // no transformation > number of spaces for indentation
+			{ type: "application/json" },
+		),
+	);
 	link.download = `terms-${Date.now().toString()}.json`;
 	link.click();
 
@@ -325,14 +306,9 @@ document.getElementById("importFile").addEventListener("change", (e) => {
 	reader.readAsText(file);
 });
 
-// core logic for input
+// input > collapse spaces > trim leading spaces
 function formatInput() {
-	let val = inputText.value;
-
-	val = val.replace(/\s+/g, " "); // collapse spaces
-	val = val.replace(/^\s+/g, ""); // trim leading spaces
-
-	inputText.value = val;
+	inputText.value = inputText.value.replace(/^\s+|\s{2,}/g, " ");
 }
 
 inputText.addEventListener("input", () => {
@@ -342,13 +318,12 @@ inputText.addEventListener("input", () => {
 inputText.addEventListener("input", updateRunButton);
 
 const prependString = (input, prefix = "#") => {
-	const cleanedStr = String(input)
-		.replace(/[\r\n]+/g, " ")
-		.trim()
-		.replace(/\s+/g, " ");
-
-	const words = getWords(cleanedStr);
-
+	const words = getWords(
+		String(input)
+			.replace(/[\r\n]+/g, " ")
+			.trim()
+			.replace(/\s+/g, " "),
+	);
 	const seen = new Set();
 	const duplicates = new Set();
 	const uniqueWords = [];
@@ -368,18 +343,19 @@ const prependString = (input, prefix = "#") => {
 	const toHash = (arr) => arr.map((w) => `${prefix}${w}`).join(" ");
 	const english = uniqueWords.filter((w) => /^[\x00-\x7F]+$/.test(w));
 	const nonEnglish = uniqueWords.filter((w) => /[^\x00-\x7F]/.test(w));
-
 	return [toHash(uniqueWords), toHash(english), toHash(nonEnglish)];
 };
 
-function processString() {
+/* -------------------------------------------------------------------------- */
+// main buttons
+runBtn.addEventListener("click", () => {
 	outputContainer.innerHTML = "";
 	results.length = 0;
 	duplicatesList.length = 0;
 
 	const [all, english, nonEnglish] = prependString(inputText.value);
 	const sections = [
-		{ title: "Hashtags:", value: all },
+		// { title: "Hashtags:", value: all }, // no longer needed
 		{ title: "Hashtags (English):", value: english },
 		{ title: "Hashtags (Non-English):", value: nonEnglish },
 	];
@@ -390,16 +366,11 @@ function processString() {
 		outputContainer.appendChild(createContainer(section.title, section.value));
 	});
 
-	// duplicates container (always last)
 	if (duplicatesList.length > 0) {
-		const dupes = duplicatesList.join(" ");
-		results.push(dupes);
+		results.push(duplicatesList.join(" ")); // duplicates container (always last)
 		outputContainer.appendChild(createContainer("Duplicates Removed:", duplicatesList.join(" ")));
 	}
-}
-
-// main buttons
-runBtn.addEventListener("click", processString);
+});
 
 copyBtn.addEventListener("click", () => {
 	if (results.length === 0) {
@@ -409,7 +380,8 @@ copyBtn.addEventListener("click", () => {
 	}
 
 	const uniqueInput = uniqueWordsList.join(" ");
-	const finalText = [uniqueInput ? uniqueInput : "", ...results].filter(Boolean).join("\n\n");
+	const filteredResults = results.filter((result) => result !== duplicatesList.join(" "));
+	const finalText = [uniqueInput ? uniqueInput : "", ...filteredResults].filter(Boolean).join("\n\n");
 	navigator.clipboard.writeText(finalText);
 
 	copyBtn.textContent = "Copied!";
@@ -419,14 +391,13 @@ copyBtn.addEventListener("click", () => {
 clearBtn.addEventListener("click", () => {
 	inputText.value = "";
 	outputContainer.innerHTML = "";
-
 	document.querySelectorAll(".subgroup").forEach((el) => {
 		el.classList.remove("partial-highlight", "full-highlight"); // clear highlights
 	});
-
 	updateRunButton();
 });
 
+/* -------------------------------------------------------------------------- */
 // init
 loadTerms();
 renderSidebar();
