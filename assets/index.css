@@ -6,6 +6,8 @@
 :root {
 	--text1: #e1dace;
 	--text2: #c5beb1;
+
+	--yellow1: #dbb253;
 }
 
 body {
@@ -22,7 +24,7 @@ body {
 }
 
 a {
-	color: #dbb253;
+	color: var(--yellow1);
 	line-height: 0;
 }
 
