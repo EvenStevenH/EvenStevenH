@@ -5,7 +5,7 @@
 
 :root {
 	--text1: #e1dace;
-	--text2: #c5beb1;
+	--text2: #999183;
 
 	--yellow1: #dbb253;
 }
@@ -53,7 +53,7 @@ main {
 }
 
 nav {
-	flex: 1.2;
+	flex: 1.4;
 	overflow: auto;
 	text-align: left;
 	border-right: #ddc59b8a solid 2px;
@@ -129,4 +129,11 @@ nav li:hover:not(.active),
 
 .panel a {
 	text-decoration: none;
+}
+
+.navSubtitle {
+	color: var(--text2);
+	margin-left: 1em;
+	font-style: italic;
+	font-size: 0.8em;
 }
